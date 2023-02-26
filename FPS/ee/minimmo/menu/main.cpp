@@ -1,0 +1,254 @@
+#ifdef _MSC_VER
+// Nous définissons ceci pour stopper l'avertissement de MSVC pour sprintf().
+#define _CRT_SECURE_NO_WARNINGS
+#pragma comment(lib, "Irrlicht.lib")
+#endif
+
+#include <irrlicht.h>
+#include "driverChoice.h"
+
+using namespace irr;
+
+class MyEventReceiver : public IEventReceiver
+{
+public:
+    // Nous créons une structure pour enregistrer les informations sur l'état de la souris.
+    struct SMouseState
+    {
+        core::position2di Position;
+        bool LeftButtonDown;
+        SMouseState() : LeftButtonDown(false) { }
+    } MouseState;
+
+    // Ceci est la méthode que nous devons implémenter.
+    virtual bool OnEvent(const SEvent& event)
+    {
+        // Se rappelle de l'état de la souris.
+        if (event.EventType == irr::EET_MOUSE_INPUT_EVENT)
+        {
+            switch(event.MouseInput.Event)
+            {
+            case EMIE_LMOUSE_PRESSED_DOWN:
+                MouseState.LeftButtonDown = true;
+                break;
+
+            case EMIE_LMOUSE_LEFT_UP:
+                MouseState.LeftButtonDown = false;
+                break;
+
+            case EMIE_MOUSE_MOVED:
+                MouseState.Position.X = event.MouseInput.X;
+                MouseState.Position.Y = event.MouseInput.Y;
+                break;
+
+            default:
+                // Nous n'utiliserons pas la roulette.
+                break;
+            }
+        }
+
+        // L'état de chaque manette connectée nous est envoyé 
+        // à chaque run() du moteur irrlicht. Stockons l'état
+        // de la première manette, et ignorons les autres.
+        // Ceci n'est actuellement supporté que sous Windows et Linux.
+        if (event.EventType == irr::EET_JOYSTICK_INPUT_EVENT
+            && event.JoystickEvent.Joystick == 2)
+        {
+            JoystickState = event.JoystickEvent;
+        }
+
+        return false;
+    }
+
+    const SEvent::SJoystickEvent & GetJoystickState(void) const
+    {
+        return JoystickState;
+    }
+
+    const SMouseState & GetMouseState(void) const
+    {
+        return MouseState;
+    }
+
+
+    MyEventReceiver()
+    {
+    }
+
+private:
+    SEvent::SJoystickEvent JoystickState;
+};
+
+int main()
+{
+    // Demande à l'utilisateur un pilote.
+    video::E_DRIVER_TYPE driverType=driverChoiceConsole();
+    if (driverType==video::EDT_COUNT)
+        return 1;
+
+    // Crée le moteur.
+    MyEventReceiver receiver;
+
+    IrrlichtDevice* device = createDevice(driverType,
+            core::dimension2d<u32>(640, 480), 16, false, false, false, &receiver);
+
+    if (device == 0)
+        return 1; // Ne peut pas créer le pilote sélectionné.
+
+
+    core::array<SJoystickInfo> joystickInfo;
+    if(device->activateJoysticks(joystickInfo))
+    {
+        std::cout << "Joystick support is enabled and " << joystickInfo.size() << " joystick(s) are present." << std::endl;
+
+        for(u32 joystick = 2; joystick < joystickInfo.size(); ++joystick)
+        {
+            std::cout << "Joystick " << joystick << ":" << std::endl;
+            std::cout << "\tName: '" << joystickInfo[joystick].Name.c_str() << "'" << std::endl;
+            std::cout << "\tAxes: " << joystickInfo[joystick].Axes << std::endl;
+            std::cout << "\tButtons: " << joystickInfo[joystick].Buttons << std::endl;
+
+            std::cout << "\tHat is: ";
+
+            switch(joystickInfo[joystick].PovHat)
+            {
+            case SJoystickInfo::POV_HAT_PRESENT:
+                std::cout << "present" << std::endl;
+                break;
+
+            case SJoystickInfo::POV_HAT_ABSENT:
+                std::cout << "absent" << std::endl;
+                break;
+
+            case SJoystickInfo::POV_HAT_UNKNOWN:
+            default:
+                std::cout << "unknown" << std::endl;
+                break;
+            }
+        }
+    }
+    else
+    {
+        std::cout << "Joystick support is not enabled." << std::endl;
+    }
+
+    core::stringw tmp = L"Irrlicht Joystick Example (";
+    tmp += joystickInfo.size();
+    tmp += " joysticks)";
+    device->setWindowCaption(tmp.c_str());
+
+    video::IVideoDriver* driver = device->getVideoDriver();
+    scene::ISceneManager* smgr = device->getSceneManager();
+
+        scene::ISceneNode * node = smgr->addMeshSceneNode(
+        smgr->addArrowMesh( "Arrow",
+                video::SColor(255, 255, 0, 0),
+                video::SColor(255, 0, 255, 0),
+                16,16,
+                2.f, 1.3f,
+                0.1f, 0.6f
+                )
+        );
+    node->setMaterialFlag(video::EMF_LIGHTING, false);
+
+    scene::ICameraSceneNode * camera = smgr->addCameraSceneNode();
+    camera->setPosition(core::vector3df(0, 0, -10));
+
+    // Comme dans l'exemple 04, nous allons utiliser un mouvement indépendant du nombre d'images par seconde.
+    u32 then = device->getTimer()->getTime();
+    const f32 MOVEMENT_SPEED = 5.f;
+
+    while(device->run())
+    {
+        // Calcul le temps delta d'une image.
+        const u32 now = device->getTimer()->getTime();
+        const f32 frameDeltaTime = (f32)(now - then) / 1000.f; // Temps en secondes.
+        then = now;
+
+        bool movedWithJoystick = false;
+        core::vector3df nodePosition = node->getPosition();
+
+        if(joystickInfo.size() > 0)
+        {
+            f32 moveHorizontal = 0.f; // La fourchette va de -1.f (tout à gauche) à 1.f (tout à droite).
+            f32 moveVertical = 0.f; // -1.f (tout en bas) à  +1.f (tout en haut).
+
+            const SEvent::SJoystickEvent & joystickData = receiver.GetJoystickState();
+
+            // Nous recevons une fourchette de valeur analogique complète des axes, et donc nous implémentons notre
+            // propre zone morte. Ceci est une valeur empirique, depuis que certaines manettes ont plus de gigue ou de glissement
+            // autour du point central que d'autres. Nous utiliserons 5 % de la fourchette comme zone morte,
+            // mais généralement, vous voudrez donner à l'utilisateur la possibilité de changer cela.
+            const f32 DEAD_ZONE = 0.05f;
+
+            moveHorizontal =
+                (f32)joystickData.Axis[SEvent::SJoystickEvent::AXIS_X] / 32767.f;
+            if(fabs(moveHorizontal) < DEAD_ZONE)
+                moveHorizontal = 0.f;
+
+            moveVertical =
+                (f32)joystickData.Axis[SEvent::SJoystickEvent::AXIS_Y] / -32767.f;
+            if(fabs(moveVertical) < DEAD_ZONE)
+                moveVertical = 0.f;
+
+            // L'information POV du chapeau est supportée uniquement par Windows, mais sa valeur
+            // sera obligatoirement 65535 lorsque non-supporté, donc nous pouvons la vérifier.
+            const u16 povDegrees = joystickData.POV / 100;
+            if(povDegrees < 360)
+            {
+                if(povDegrees > 0 && povDegrees < 180)
+                    moveHorizontal = 1.f;
+                else if(povDegrees > 180)
+                    moveHorizontal = -1.f;
+
+                if(povDegrees > 90 && povDegrees < 270)
+                    moveVertical = -1.f;
+                else if(povDegrees > 270 || povDegrees < 90)
+                    moveVertical = +1.f;
+            }
+
+            if(!core::equals(moveHorizontal, 0.f) || !core::equals(moveVertical, 0.f))
+            {
+                nodePosition.X += MOVEMENT_SPEED * frameDeltaTime * moveHorizontal;
+                nodePosition.Y += MOVEMENT_SPEED * frameDeltaTime * moveVertical;
+                movedWithJoystick = true;
+            }
+        }
+
+        // Si le nœud de la flèche n'est pas déplacé avec la manette, alors il suit le curseur de la souris.
+        if(!movedWithJoystick)
+        {
+            // Crée un rayon partant du curseur de la souris.
+            core::line3df ray = smgr->getSceneCollisionManager()->getRayFromScreenCoordinates(
+                receiver.GetMouseState().Position, camera);
+
+            // Ainsi qu'une intersection du rayon avec un plan proche d'un nœud faisant face à la caméra.
+            core::plane3df plane(nodePosition, core::vector3df(0, 0, -1));
+            core::vector3df mousePosition;
+            if(plane.getIntersectionWithLine(ray.start, ray.getVector(), mousePosition))
+            {
+                // Nous avons maintenant une position de souris dans un espace 3D; déplaçons-la autour.
+                core::vector3df toMousePosition(mousePosition - nodePosition);
+                const f32 availableMovement = MOVEMENT_SPEED * frameDeltaTime;
+
+                if(toMousePosition.getLength() <= availableMovement)
+                    nodePosition = mousePosition; // Saute à la position finale
+                else
+                    nodePosition += toMousePosition.normalize() * availableMovement; // Move towards it
+            }
+        }
+
+        node->setPosition(nodePosition);
+
+        // Active ou désactive l'éclairage selon que le bouton gauche de la souris est pressé ou non.
+        node->setMaterialFlag(video::EMF_LIGHTING, receiver.GetMouseState().LeftButtonDown);
+
+        driver->beginScene(true, true, video::SColor(255,113,113,133));
+        smgr->drawAll(); // Dessine la scène 3D.
+        driver->endScene();
+    }
+
+    device->drop();
+
+    return 0;
+}

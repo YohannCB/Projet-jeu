@@ -1,0 +1,30 @@
+#include "Personnage.hpp"
+#include <string>
+#include <iostream>
+
+Warrior Garen("Garen");
+Mage Lux("Lux");
+Priest Soraka("Soraka");
+
+Mage::Mage(std::string name)
+{
+  m_name = name;
+  m_vie = 340;
+  m_mana = 200;
+  m_degatsArme = 200;
+  nbDegats = 200;
+  m_intel = 200;
+}
+
+void Mage::Presentation() const
+{
+  std::cout << "Tu es maintenant un mage, puisses-tu embraser tes ennemis pour tes sombres dessains.\n";
+}
+
+
+
+
+
+
+
+

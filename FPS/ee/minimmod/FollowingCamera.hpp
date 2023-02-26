@@ -1,0 +1,193 @@
+#include<irrlicht.h>
+
+using namespace irr;
+using namespace core;                 
+using namespace scene;                                                   
+
+class FollowingCamera
+{
+     ISceneNode* pTargetNode;
+     ICameraSceneNode* Camera;
+
+     vector3df LastTargetPosition;
+     vector3df LastTargetRotation;
+     
+     vector3df NewCamPosition;
+     vector3df FinalCamPosition;
+     vector3df Vecteur;
+
+  bool MonInitialPos = true;            // Mettre true pour utiliser la position initiale de la camera.
+     f32 MaDistance;                // Distance entre l'objet et la camera.
+     f32 MonAltitudeCamera;         // Hauteur de la camera, par rapport a l'objet.
+     f32 MonDeltaCible;             // Permet d'incrementer ou de decrementer la hauteur du point cible (par defaut le centre de l'objet).
+     vector3df MonInitialCamPosition;  // vecteur permettant d'initialiser la position de la camera.(facultatif)
+                                       // par defaut la camera se place derriere l'objet suivant la distance et la hauteur indiqué.
+     f32 EcartObj;
+     f32 EcartXObj;
+     f32 EcartZObj;
+     f32 DistX;
+     f32 VittX;
+     f32 DistY;
+     f32 VittY;
+     f32 DistZ;
+     f32 VittZ;
+     f32 CoeffVittCam;
+     f32 ix;
+     f32 iy;
+     f32 iz;
+     
+     bool TestNode ;
+     bool Verrou ;
+
+     public:
+     // constructeur
+     FollowingCamera(ISceneNode* TargetNode, ISceneManager*smgr,
+                     bool InitialPos = false, scene::ITriangleSelector* selectorCam = 0,
+                     f32 Distance = 200.0f, f32 AltitudeCamera = 100.0f, f32 DeltaCible = 0.0f,
+                     vector3df InitialCamPosition = vector3df(-100.0f, 100.0f, 0.0f),
+                     s32 id = -1);
+
+     // destructeur
+     ~FollowingCamera();
+
+     ICameraSceneNode* getCam() { return Camera; }
+
+     void Update();
+
+     void Target(vector3df target);
+
+  void Unfocused();
+
+  
+};
+
+// constructeur
+FollowingCamera::FollowingCamera(ISceneNode* TargetNode, ISceneManager*smgr,
+                                 bool InitialPos,
+                                 ITriangleSelector* selectorCam,
+                                 f32 Distance, f32 AltitudeCamera, f32 DeltaCible,
+                                 vector3df InitialCamPosition,
+                                 s32 id )
+{
+     MonInitialPos = InitialPos;
+     MaDistance = Distance;
+     MonAltitudeCamera = AltitudeCamera;
+     MonDeltaCible = DeltaCible;
+     MonInitialCamPosition = InitialCamPosition;
+     
+     LastTargetPosition = TargetNode->getPosition();
+     
+     Vecteur = vector3df(LastTargetPosition.X,LastTargetPosition.Y+DeltaCible,LastTargetPosition.Z);
+
+     TestNode = true;
+     Verrou = false;
+     
+     CoeffVittCam = 20;       // coefficient de vitesse de replacement de camera (au plus il est petit, au plus elle va vite)
+       
+     if(InitialPos == true)
+     {
+          Camera = smgr->addCameraSceneNode(0,
+                                            vector3df(InitialCamPosition.X,InitialCamPosition.Y + LastTargetPosition.Y,InitialCamPosition.Z),
+                                            vector3df(LastTargetPosition.X,(LastTargetPosition.Y + DeltaCible),LastTargetPosition.Z),
+                                            id );
+     }
+     else
+     {
+          EcartXObj = Distance * cos(TargetNode->getRotation().Y * PI/180.0f);
+          EcartZObj = Distance * sin(TargetNode->getRotation().Y * PI/180.0f);
+
+          Camera = smgr->addCameraSceneNode(0,
+                                            vector3df(LastTargetPosition.X - EcartXObj,AltitudeCamera + LastTargetPosition.Y,LastTargetPosition.Z + EcartZObj),
+                                            vector3df(LastTargetPosition.X,(LastTargetPosition.Y + DeltaCible),LastTargetPosition.Z),
+                                            id );     
+     }
+     
+     //collision
+     ISceneNodeAnimator* CollisionCamera = smgr->createCollisionResponseAnimator(
+     selectorCam, Camera, core::vector3df(10,10,10),
+     vector3df(0,0,0),
+     vector3df(0,0,0));
+     Camera->addAnimator(CollisionCamera);
+     CollisionCamera->drop();
+         
+     pTargetNode = TargetNode;
+     pTargetNode->grab();
+}
+
+// destructeur
+FollowingCamera::~FollowingCamera()
+{
+     pTargetNode->drop();
+}
+
+void FollowingCamera::Update()
+{
+     if(!Camera || !pTargetNode) return;
+     
+     vector3df CurrTargetPosition = pTargetNode->getPosition();
+     
+     if(Verrou == false)  // pour tester le premier deplacement de l'objet, avant de replacer la camera.
+     {
+           vector3df CurrTargetRotation = pTargetNode->getRotation();
+           if((CurrTargetPosition.X != LastTargetPosition.X || CurrTargetPosition.Z != LastTargetPosition.Z || CurrTargetRotation.Y != LastTargetRotation.Y))
+           {
+                TestNode = false;
+                Verrou = true;
+           }
+           LastTargetRotation = CurrTargetRotation;     
+     } 
+       
+     if(TestNode == false)
+     {           
+          NewCamPosition = Camera->getPosition();
+
+          EcartXObj = MaDistance * cos(pTargetNode->getRotation().Y * PI/180.0f);
+          EcartZObj = MaDistance * sin(pTargetNode->getRotation().Y * PI/180.0f);
+          FinalCamPosition = vector3df(CurrTargetPosition.X - EcartXObj,MonAltitudeCamera+CurrTargetPosition.Y,CurrTargetPosition.Z + EcartZObj);
+         
+          DistX = NewCamPosition.X - FinalCamPosition.X;
+          DistY = NewCamPosition.Y - FinalCamPosition.Y;
+          DistZ = NewCamPosition.Z - FinalCamPosition.Z;
+          if( DistX > 0 ) {ix = -1;} else {ix = 1; DistX=(-1)*DistX;}
+          if( DistY > 0 ) {iy = -1;} else {iy = 1; DistY=(-1)*DistY;}
+          if( DistZ > 0 ) {iz = -1;} else {iz = 1; DistZ=(-1)*DistZ;}       
+          VittX = DistX / CoeffVittCam;
+          VittY = DistY / CoeffVittCam;
+          VittZ = DistZ / CoeffVittCam;
+          Camera->setPosition(vector3df(NewCamPosition.X +(ix*VittX),NewCamPosition.Y +(iy*VittY),NewCamPosition.Z +(iz*VittZ)));
+
+          DistX = Vecteur.X - CurrTargetPosition.X;
+          DistY = Vecteur.Y - (CurrTargetPosition.Y + MonDeltaCible);
+          DistZ = Vecteur.Z - CurrTargetPosition.Z;
+          if( DistX > 0 ) {ix = -1;} else {ix = 1; DistX=(-1)*DistX;}
+          if( DistY > 0 ) {iy = -1;} else {iy = 1; DistY=(-1)*DistY;}
+          if( DistZ > 0 ) {iz = -1;} else {iz = 1; DistZ=(-1)*DistZ;}       
+          VittX = DistX / CoeffVittCam;
+          VittY = DistY / CoeffVittCam;
+          VittZ = DistZ / CoeffVittCam;
+         
+          Vecteur = vector3df(Vecteur.X+(ix*VittX),Vecteur.Y+(iy*VittY),Vecteur.Z+(iz*VittZ));
+          Camera->setTarget(Vecteur);   
+     }
+     
+     LastTargetPosition = CurrTargetPosition;
+}
+
+void FollowingCamera::Target(vector3df target)
+{
+
+  Camera->setTarget(target);
+
+}
+
+void FollowingCamera::Unfocused()
+{
+  Camera->setPosition(vector3df(
+				pTargetNode->getPosition().X + 50 * cos(Camera->getRotation().Y * PI/180.0f),
+					  pTargetNode->getPosition().Y + 20,
+				pTargetNode->getPosition().Z + 50 * sin(Camera->getRotation().Y * PI/180.0f)
+				//pTargetNode->getPosition().Z + 50 * sin(Camera->getRotation().Y / 360 * 3.1415926)
+				
+));
+}
+

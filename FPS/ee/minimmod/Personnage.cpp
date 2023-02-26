@@ -1,0 +1,34 @@
+#include "Personnage.hpp"
+#include <iostream>
+#include <string>
+#include <stdio.h>
+#include <stdlib.h>
+#include <SFML/Audio.hpp>
+
+Personnage::Personnage()
+{ 
+}
+
+void Personnage::Presentation() const
+{
+}
+
+void Personnage::attaquer(Personnage &cible, int nbDegats)
+{
+  cible.recevoirDegats(nbDegats);
+}
+
+void Personnage::recevoirDegats(int nbDegats)
+{
+  vie -= nbDegats;
+
+  if(vie < 0)
+    {
+      vie = 0;
+    }
+}
+
+
+
+
+

@@ -1,0 +1,20 @@
+#include "Personnage.hpp"
+#include <iostream>
+#include <string>
+
+Cible::Cible(std::string name)
+{
+  vitesse = 3;
+  vie = 200;
+  agility = 1;
+  banshee = 0;
+}
+
+void Cible::Presentation() const
+{
+  //Affiche à la personne qu'elle est la cible.
+}
+
+
+
+

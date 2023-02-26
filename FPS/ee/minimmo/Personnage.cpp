@@ -1,0 +1,29 @@
+#include "Personnage.hpp"
+#include <iostream>
+#include <string>
+#include <stdio.h>
+#include <stdlib.h>
+
+Personnage::Personnage()
+{ 
+}
+
+void Personnage::attaquer(Personnage &cible, int nbDegats)
+{
+  cible.recevoirDegats(nbDegats);
+}
+
+void Personnage::recevoirDegats(int nbDegats)
+{
+  vie -= nbDegats;
+
+  if(vie < 0)
+    {
+      vie = 0;
+    }
+}
+
+
+
+
+

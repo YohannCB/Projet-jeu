@@ -1,0 +1,714 @@
+# Blender MTL File: 'truc.pk3.blend'
+# Material Count: 61
+
+newmtl Acacia_Leaves
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Acacia_Log
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Bamboo
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Bed
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Block_of_Emerald
+Ns 203.999975
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.160000 0.160000 0.160000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Block_of_Gold
+Ns 203.999975
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.160000 0.160000 0.160000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Cactus
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Campfire__4
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 1.000000 1.000000 1.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_Ke C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Cauldron
+Ns 127.500012
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.100000 0.100000 0.100000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Chain
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Cobblestone
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Crimson_Nylium
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Crying_Obsidian
+Ns 203.999975
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.160000 0.160000 0.160000
+Ke 0.544331 0.544331 0.544331
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+map_Ke C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Cut_Sandstone_Slab
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Dandelion
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Dark_Oak_Leaves
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Dark_Oak_Log
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Dark_Oak_Wood
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Dead_Bush
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Fence
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Furnace
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Glow_Lichen
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.318794 0.318794 0.318794
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_Ke C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Glowstone
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 1.000000 1.000000 1.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+map_Ke C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Grass_Block
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Inverted_Daylight_Sensor
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Iron_Bars
+Ns 127.500012
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.100000 0.100000 0.100000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Iron_Door
+Ns 127.500012
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.100000 0.100000 0.100000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Jack_o'Lantern
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 1.000000 1.000000 1.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+map_Ke C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Ladder
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Lantern
+Ns 178.499991
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.140000 0.140000 0.140000
+Ke 1.000000 1.000000 1.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_Ke C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Lever
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Light_Stained_Glass
+Ns 242.249999
+Ka 0.200000 0.200000 0.200000
+Kd 1.000000 1.000000 1.000000
+Ks 0.030000 0.030000 0.030000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Nether_Portal
+Ns 0.000000
+Ka 0.200000 0.200000 0.200000
+Kd 1.000000 1.000000 1.000000
+Ks 0.030000 0.030000 0.030000
+Ke 0.627989 0.627989 0.627989
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_Ke C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Netherrack
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Oak_Door
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Oak_Log
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Oak_Slab
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Obsidian
+Ns 203.999975
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.160000 0.160000 0.160000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Oxeye_Daisy
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Polished_Andesite
+Ns 216.750019
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.170000 0.170000 0.170000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Polished_Diorite
+Ns 216.750019
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.170000 0.170000 0.170000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Purpur_Stairs
+Ns 165.750022
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.130000 0.130000 0.130000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Quartz_Stairs
+Ns 203.999975
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.160000 0.160000 0.160000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Rail
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Red_Tulip
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Redstone_Lamp_(inactive)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Redstone_Torch_(active)
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.318794 0.318794 0.318794
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_Ke C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Redstone_Wire_power_0
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Sand
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Scaffolding
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Sea_Lantern
+Ns 178.499991
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.140000 0.140000 0.140000
+Ke 1.000000 1.000000 1.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+map_Ke C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Shroomlight
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 1.000000 1.000000 1.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+map_Ke C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Skeleton_Skull
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Soul_Campfire
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.544331 0.544331 0.544331
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_Ke C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Stationary_Lava
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 1.000000 1.000000 1.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+map_Ke C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Stationary_Water
+Ns 216.750019
+Ka 0.200000 0.200000 0.200000
+Kd 1.000000 1.000000 1.000000
+Ks 0.030000 0.030000 0.030000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Stone
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Torch
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.901686 0.901686 0.901686
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_Ke C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Trapped_Chest
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png
+
+newmtl Vines
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGBA.png
+map_d C:\\Users\\Mazuz\\Desktop\\nouvmap-Alpha.png
+
+newmtl Warped_Nylium
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\Mazuz\\Desktop\\nouvmap-RGB.png

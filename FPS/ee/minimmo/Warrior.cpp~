@@ -1,0 +1,26 @@
+#include "Personnage.hpp"
+#include <iostream>
+#include <string>
+
+Warrior Garen("Garen");
+Mage Lux("Lux");
+Priest Soraka("Soraka");
+
+Warrior::Warrior(std::string name)
+{
+  m_name = name;
+  m_vie = 240;
+  m_mana = 200;
+  m_degatsArme = 200;
+  nbDegats = 200;
+  m_intel = 200;
+}
+
+void Warrior::Presentation() const
+{
+  std::cout << "Tu es maintenant un combattant, puisses-tu écraser tes ennemis pour défendre la justice.\n";
+}
+
+
+
+

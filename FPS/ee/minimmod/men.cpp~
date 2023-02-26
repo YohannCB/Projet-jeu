@@ -1,0 +1,272 @@
+#include <irrlicht.h>
+#include "driverChoice.h"
+#include <stdio.h>
+#include <ctime>
+#include <cmath>
+#include <stdlib.h>
+#include <string>
+
+#ifdef _MSC_VER
+// We'll also define this to stop MSVC complaining about sprintf().
+#define _CRT_SECURE_NO_WARNINGS
+#pragma comment(lib, "Irrlicht.lib")
+#endif
+
+
+using namespace irr;
+using namespace core;
+using namespace scene;
+using namespace video;
+using namespace io;
+using namespace gui;
+
+
+
+int main()
+{
+
+  	
+	
+
+
+	// ask user for driver
+	video::E_DRIVER_TYPE driverType=driverChoiceConsole();
+	if (driverType==video::EDT_COUNT)
+		return 1;
+
+	// create device
+	MyEventReceiver receiver;
+
+	IrrlichtDevice* device = createDevice(driverType,
+			core::dimension2d<u32>(640, 480), 16, false, false, false, &receiver);
+
+	if (device == 0)
+		return 1; // could not create selected driver.
+
+                
+	
+	
+	//scene::ISceneNode* n2 = smgr->addCubeSceneNode();
+	video::IVideoDriver* driver = device->getVideoDriver();
+	scene::ISceneManager* smgr = 	device->getSceneManager();
+
+
+	//open le fond d'écran(chargement)
+	
+	IGUIEnvironment* env = device->getGUIEnvironment();
+	
+	env->addImage(driver->getTexture("../../media/JOUER.png"),
+        position2d<int>(0,0));
+
+
+	
+    
+    
+    
+
+
+
+	gui::IGUIStaticText* diagnostics = device->getGUIEnvironment()->addStaticText(
+		L"", core::rect<s32>(10, 10, 400, 20));
+	diagnostics->setOverrideColor(video::SColor(255, 255, 255, 0));
+	
+	
+	//device->getFileSystem()->addFileArchive("../../media/map-20kdm2.pk3");
+	
+	
+	//scene::IAnimatedMesh* mesh3 = smgr->getMesh("20kdm2.bsp");
+	//scene::ISceneNode* node3 = 0;
+
+	
+	
+	
+	ITimer *timer = device->getTimer();
+	u32 temps_actuel, temps_precedent;
+	 
+	temps_precedent = timer->getTime();
+
+	
+	int Check = 0;
+	int controle = 1;
+	int TempsActu = 0;
+	int TempsDem = 0;
+	
+
+
+	while(device->run())
+	{
+	
+	// Work out a frame delta time.
+	//const u32 now = device->getTimer()->getTime();
+	//const f32 frameDeltaTime = (f32)(now - then) / 1000.f; // Time in seconds
+	//then = now;
+
+	/* Check if keys W, S, A or D are being held down, and move the
+	sphere node around respectively. */
+		
+	
+
+		
+        		
+        		
+        		if (Check == 1){
+				if(controle == 1)
+				{
+					env->clear();
+					env->addImage(driver->getTexture("../../media/JOUER.png"),
+					position2d<int>(0,0));
+					Check = 0;	
+					
+				}
+				if(controle == 2)
+				{
+					env->clear();
+					env->addImage(driver->getTexture("../../media/OPTION.png"),
+					position2d<int>(0,0));	
+					Check = 0;
+				
+				}
+				if(controle == 3)
+				{
+					env->clear();
+					env->addImage(driver->getTexture("../../media/QUITTER.png"),
+					position2d<int>(0,0));	
+					Check = 0;
+					
+				}
+				if(controle < 1)
+				{
+					env->clear();
+					env->addImage(driver->getTexture("../../media/QUITTER.png"),
+					position2d<int>(0,0));	
+					Check = 0;
+					controle=3;
+				
+				}
+        		}	
+		
+		}
+		
+		
+		if(receiver.IsKeyDown(irr::KEY_DOWN))
+		{
+		
+			TempsActu = clock();
+			std::cout<<"Temps actuelle :"<<TempsActu;
+			//TempsActu = TempsActu/CLOCKS_PER_SEC;
+		
+			if (Check == 0)
+			{	
+			
+				if (TempsActu > TempsDem){
+					
+					std::cout<<"Temps actuel :"<<TempsActu<<"\n";
+					TempsDem = TempsActu+100000;
+					Check = 0;
+					std::cout<<"Temps Demander :"<<TempsDem<<"\n";
+					
+					Check = 1;
+					controle = controle+1;
+        			}
+        		}
+        		
+        		std::cout<<"Check = "<<Check<<"\n";
+        		std::cout<<"Valeur de controle : "<<controle<<"\n";
+        		
+        		if (Check == 1){
+				if(controle == 1)
+				{
+					env->clear();
+					env->addImage(driver->getTexture("../../media/JOUER.png"),
+					position2d<int>(0,0));
+					Check = 0;	
+					
+				}
+				if(controle == 2)
+				{
+					env->clear();
+					env->addImage(driver->getTexture("../../media/OPTION.png"),
+					position2d<int>(0,0));	
+					Check = 0;
+				
+				}
+				if(controle == 3)
+				{
+					env->clear();
+					env->addImage(driver->getTexture("../../media/QUITTER.png"),
+					position2d<int>(0,0));	
+					Check = 0;
+					
+				}
+				if(controle > 3)
+				{
+					env->clear();
+					env->addImage(driver->getTexture("../../media/JOUER.png"),
+					position2d<int>(0,0));	
+					Check = 0;
+					controle=1;
+				
+				}
+        		}	
+		
+		}		
+		
+		
+		
+		
+		if(receiver.IsKeyDown(irr::KEY_KEY_S))
+		{
+		  env->addImage(driver->getTexture("./media/JOUER.png"),
+				position2d<int>(0,0));
+				env->clear();
+				
+		}
+		
+
+		if(receiver.IsKeyDown(irr::KEY_KEY_Q))
+		{
+		  env->addImage(driver->getTexture("./media/OPTION.png"),
+				position2d<int>(0,0));
+				env->clear();
+		}
+		
+		if(receiver.IsKeyDown(irr::KEY_KEY_D))
+		{
+		  env->addImage(driver->getTexture("./media/QUITTER.png"),
+				position2d<int>(0,0));
+				env->clear();
+		}
+			
+		
+		
+		
+		
+		driver->beginScene(true, true, video::SColor(255,113,113,133)); 
+
+		
+		
+		
+	
+		
+		
+		
+		driver->beginScene(true, true, video::SColor(255,113,113,133));
+		
+		
+		//smgr->drawAll(); // draw the 3d scene
+		//device->getGUIEnvironment()->drawAll(); // draw the gui environment (the logo)
+		
+		
+		
+		driver->endScene();
+
+		int fps = driver->getFPS();
+
+	        
+	}
+
+	device->drop();
+	
+	return 0;
+}
+
